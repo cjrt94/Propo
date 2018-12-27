@@ -19,7 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('document');
             $table->string('type_document');
             $table->boolean('state');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
@@ -34,6 +34,8 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('clients');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

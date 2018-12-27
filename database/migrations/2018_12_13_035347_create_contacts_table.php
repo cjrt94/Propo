@@ -19,7 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->boolean('state');
-            $table->integer('client_id');
+            $table->unsignedInteger('client_id');
 
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
@@ -34,6 +34,8 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('contacts');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

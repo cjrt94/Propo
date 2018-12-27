@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Propo;
 
 use Illuminate\Database\Eloquent\Model;
 

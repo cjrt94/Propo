@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace Propo;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ProposalProduct extends Model
+class ProposalProduct extends Pivot
 {
-    //
+
 }
