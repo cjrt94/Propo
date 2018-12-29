@@ -11,7 +11,7 @@ use Propo\Department;
 class ClientController extends Controller
 {
     public function index() {
-        $clients= Client::orderBy('created_at','desc')->paginate(15);
+        $clients= Client::orderBy('created_at','desc')->limit(15)->get();
         return view('clients.app', ['clients' => $clients]);
     }
 

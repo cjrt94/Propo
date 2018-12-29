@@ -15,7 +15,7 @@ class PropoController extends Controller
 {
 
     public function index(){
-        $propos= Proposal::orderBy('created_at','desc')->paginate(15);
+        $propos= Proposal::orderBy('created_at','desc')->get();
 
         return view('propos.app', ['propos' => $propos]);
     }

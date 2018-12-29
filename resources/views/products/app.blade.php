@@ -46,6 +46,26 @@
                 </h2>
             </div>
 
+            <div class="action-header clearfix">
+                <div class="ah-label hidden-xs">Escribe aquí</div>
+
+                <div class="ah-search">
+                    <input type="text" placeholder="Filtra por razón sku o descripción..." class="ahs-input">
+
+                    <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
+                </div>
+
+                <ul class="actions">
+                    <li>
+                        <a href="" data-ma-action="action-header-open">
+                            <i class="zmdi zmdi-search"></i>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+
             <div class="table-responsive">
                 <table id="data-table-basic" class="table table-striped">
                     <thead>
@@ -83,7 +103,7 @@
 
                 </table>
 
-                {{$products->links()}}
+
 
             </div>
         </div>

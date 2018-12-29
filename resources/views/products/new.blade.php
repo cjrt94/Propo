@@ -58,7 +58,7 @@
                             <div class="form-group">
                                 <div class="fg-line">
                                     <div class="select">
-                                        <select class="form-control" name="category">
+                                        <select class="selectpicker" data-live-search="true"  name="category">
                                             <option>Seleccionar Cateogría</option>
 
                                             @foreach($categories as $category  )

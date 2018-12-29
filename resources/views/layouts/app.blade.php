@@ -164,9 +164,9 @@
 
 </div>
 
-
+        <script src="{{mix('js/app.js')}}"></script>
 	    <script src="{{ asset('vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/app.min.js') }}"></script>
+
 	    <script src="{{ asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
         <script src="{{ asset('vendors/bower_components/flot/jquery.flot.js') }}"></script>
@@ -189,9 +189,13 @@
         <script src="{{ asset('vendors/fileinput/fileinput.min.js')}}"></script>
         <script src="{{ asset('vendors/input-mask/input-mask.min.js')}}"></script>
         <script src="{{ asset('vendors/farbtastic/farbtastic.min.js')}}"></script>
+        <script src="{{asset('vendors/bootgrid/jquery.bootgrid.updated.min.js')}}"></script>
 
-        <script src="{{mix('js/app.js')}}"></script>
+        <script src="{{ asset('js/app.min.js') }}"></script>
+
 
 
 </body>
+
+
 </html>

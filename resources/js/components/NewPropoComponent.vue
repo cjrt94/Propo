@@ -507,6 +507,7 @@
                         if (response.data === 'ok') {
 
                                 notify('Cotización creada correctamente', "inverse");
+
                                 window.location.href = '/admin/cotizaciones';
 
 

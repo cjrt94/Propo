@@ -143,7 +143,7 @@
                                             <tbody>
 
 
-                                            <tr v-for="contact in contacts">
+                                            <tr v-for="(contact, index) in contacts">
                                                 <td scope="row">{{contact.id}}</td>
                                                 <td scope="row">{{contact.name}}</td>
                                                 <td >{{contact.email}}</td>
@@ -230,7 +230,7 @@
                                         <div class="form-group">
                                             <div class="fg-line">
                                                 <div class="select">
-                                                    <select v-model="selectedDep" class="form-control" data-live-search="true"  @change="getProvinces">
+                                                    <select v-model="selectedDep" class="form-control"   @change="getProvinces">
                                                         <option value="-1">Selecciona departamento</option>
 
                                                         <option v-for="department in departments" :value=department.id>{{department.name}}</option>
@@ -602,4 +602,9 @@
         }
 
     }
+
+
+
+
+
 </script>

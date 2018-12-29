@@ -87,7 +87,7 @@
 
                     </table>
 
-                    {{$propos->links()}}
+
 
                 </div>
             </div>
