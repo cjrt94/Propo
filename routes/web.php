@@ -24,6 +24,8 @@ Route::group([/*'middleware' => 'auth', */'prefix' => 'admin'  ], function () {
     Route::post('/productos/crear', 'ProductController@store')->name('storeProduct');
     Route::get('/productos/editar/{product}', 'ProductController@edit')->name('editProduct');
     Route::put('/productos/update/{product}', 'ProductController@update')->name('updateProduct');
+    Route::get('productos/filtrar}', 'ProductController@filter')->name('filterProduct');
+
 
 
     //Clients
@@ -34,12 +36,11 @@ Route::group([/*'middleware' => 'auth', */'prefix' => 'admin'  ], function () {
     Route::get('/clientes/editar/{client}', 'ClientController@edit')->name('editClient');
     Route::put('/clientes/update/{client}', 'ClientController@update')->name('updateClient');
 
-    Route::get('clientes/provinces/{department}','ProvinceController@getProvinces')->name('getProvinces');
-    Route::get('clientes/districts/{province}','DistrictController@getDistricts')->name('getDistricts');
+    Route::get('/provinces/{department}','ProvinceController@getProvinces')->name('getProvinces');
+    Route::get('/districts/{province}','DistrictController@getDistricts')->name('getDistricts');
+    Route::get('/clientes/filtrar}', 'ClientController@filter')->name('filterClient');
 
 
-    Route::get('cotizaciones/contacts/{client}','ClientController@getContacts')->name('getContacts');
-    Route::get('cotizaciones/addresses/{client}','ClientController@getAddresses')->name('getAddresses');
 
     //Propos
 
@@ -48,7 +49,8 @@ Route::group([/*'middleware' => 'auth', */'prefix' => 'admin'  ], function () {
     Route::post('/cotizaciones/crear', 'PropoController@store')->name('storePropo');
     Route::get('/cotizaciones/ver/{propo}', 'PropoController@view')->name('viewPropo');
 
-
+    Route::get('cotizaciones/contacts/{client}','ClientController@getContacts')->name('getContacts');
+    Route::get('cotizaciones/addresses/{client}','ClientController@getAddresses')->name('getAddresses');
 
 
 

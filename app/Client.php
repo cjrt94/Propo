@@ -15,4 +15,5 @@ class Client extends Model
     public function addresses() {
         return $this->hasMany('Propo\Address');
     }
+
 }

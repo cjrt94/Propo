@@ -49,11 +49,15 @@
             <div class="action-header clearfix">
                 <div class="ah-label hidden-xs">Escribe aquí</div>
 
-                <div class="ah-search">
-                    <input type="text" placeholder="Filtra por razón sku o descripción..." class="ahs-input">
+                <form action="{{route('filterProduct')}}">
 
-                    <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
+                    <div class="ah-search">
+                        <input type="text" placeholder="Filtra por razón sku o descripción..." class="ahs-input" name="filter">
+
+                        <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
                 </div>
+
+                </form>
 
                 <ul class="actions">
                     <li>

@@ -23,6 +23,7 @@ window.Vue = require('vue');
 
 Vue.component('newclient', require('./components/NewClientComponent.vue'));
 Vue.component('newpropo', require('./components/NewPropoComponent.vue'));
+Vue.component('editclient', require('./components/EditClientComponent.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

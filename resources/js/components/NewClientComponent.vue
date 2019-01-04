@@ -144,13 +144,13 @@
 
 
                                             <tr v-for="(contact, index) in contacts">
-                                                <td scope="row">{{contact.id}}</td>
+                                                
+                                                <td scope="row">{{index}}</td>
                                                 <td scope="row">{{contact.name}}</td>
                                                 <td >{{contact.email}}</td>
                                                 <td >{{contact.phone}}</td>
-                                                <td><button class="btn btn-icon command-edit waves-effect waves-circle"
-                                                            onclick="window.location.href=''" ><span class="zmdi zmdi-delete"></span></button></td>
-
+                                                <td><button type="button" class="btn btn-icon command-edit waves-effect waves-circle"
+                                                            v-on:click="deleteContact(index)" ><span class="zmdi zmdi-delete"></span></button></td>
 
                                             </tr>
 
@@ -230,7 +230,7 @@
                                         <div class="form-group">
                                             <div class="fg-line">
                                                 <div class="select">
-                                                    <select v-model="selectedDep" class="form-control"   @change="getProvinces">
+                                                    <select v-model="selectedDep" class="form-control"   @change="getProvinces" :style="{borderColor:selectedDepColor}">
                                                         <option value="-1">Selecciona departamento</option>
 
                                                         <option v-for="department in departments" :value=department.id>{{department.name}}</option>
@@ -249,7 +249,7 @@
                                         <div class="form-group">
                                             <div class="fg-line">
                                                 <div class="select">
-                                                    <select v-model="selectedPro" class="form-control" @change="getDistricts">
+                                                    <select v-model="selectedPro" class="form-control" @change="getDistricts" :style="{borderColor:selectedProColor}">
                                                         <option value="-1">Selecciona provincia</option>
                                                          <option v-for="province in provinces" :value=province.id > {{province.name}}</option>
 
@@ -268,7 +268,7 @@
                                         <div class="form-group">
                                             <div class="fg-line">
                                                 <div class="select">
-                                                    <select v-model="selectedDis" class="form-control" >
+                                                    <select v-model="selectedDis" class="form-control" :style="{borderColor:selectedDisColor}" >
                                                         <option value="-1">Selecciona distrito</option>
                                                         <option v-for="district in districts"  :value=district.id>{{district.name}}</option>
 
@@ -315,14 +315,14 @@
                                             <tbody>
 
 
-                                                <tr v-for="address in addresses">
-                                                    <td scope="row">{{address.id}}</td>
+                                                <tr v-for="(address, index) in addresses">
+                                                    <td scope="row">{{index}}</td>
                                                     <td >{{address.address}}</td>
                                                     <td >{{address.email}} </td>
                                                     <td >{{address.phone}}</td>
                                                     <td >{{address.reference}}</td>
-                                                    <td><button class="btn btn-icon command-edit waves-effect waves-circle"
-                                                                onclick="window.location.href=''" ><span class="zmdi zmdi-delete"></span></button></td>
+                                                    <td><button type="button" class="btn btn-icon command-edit waves-effect waves-circle"
+                                                                @click="deleteAddress(index)"><span class="zmdi zmdi-delete"></span></button></td>
 
 
                                                 </tr>
@@ -394,6 +394,11 @@
                 emailColor: '',
                 phoneColor: '',
                 referenceColor:'',
+                selectedDepColor:'',
+                selectedProColor: '',
+                selectedDisColor: '',
+
+
 
                 //Contacts
 
@@ -431,6 +436,9 @@
                 this.emailColor='';
                 this.phoneColor= '';
                 this.referenceColor= '';
+                this.selectedDepColor='';
+                this.selectedProColor='';
+                this.selectedDisColor='';
                 
 
                 if(this.address_1.length===0){
@@ -456,6 +464,20 @@
                     this.phoneColor= 'red';
 
                 }
+
+                else if(this.selectedDep==="-1"){
+                    this.selectedDepColor='red';
+                }
+
+                else if(this.selectedPro==="-1"){
+                    this.selectedProColor='red';
+
+                }
+
+                else if(this.selectedDis==="-1"){
+                    this.selectedDisColor='red';
+                }
+
 
 
                 else {
@@ -595,7 +617,22 @@
                         });
 
                 }
+            },
+
+            deleteContact: function ($index) {
+                console.log(this.contacts);
+
+                this.contacts.splice($index, 1);
+
+
+            },
+
+            deleteAddress: function ($index) {
+
+                this.addresses.splice($index,1);
+
             }
+
 
 
 

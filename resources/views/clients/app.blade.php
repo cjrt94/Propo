@@ -25,6 +25,7 @@
                         </li>
 
 
+
                         <li>
                             <a href="">Refrescar</a>
                         </li>
@@ -46,12 +47,17 @@
 
             <div class="action-header clearfix">
                 <div class="ah-label hidden-xs">Escribe aquí</div>
+                <form action="{{route('filterClient')}}">
 
-                <div class="ah-search">
-                    <input type="text" placeholder="Filtra por razón social/nombre o documento..." class="ahs-input">
+                    <div class="ah-search">
 
-                    <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
-                </div>
+                           <input type="text" placeholder="Filtra por razón social/nombre o documento..." class="ahs-input" name="filter">
+
+                           <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
+
+                    </div>
+
+                </form>
 
                 <ul class="actions">
                     <li>
