@@ -94,11 +94,11 @@
                                     <a data-ma-action="clear-localstorage" href=""><i class="zmdi zmdi-delete"></i> Clear Local Storage</a>
                                 </li>
 
-                                <li>
-                                    <a href="{{--{{ route('logout') }}--}}" onclick="event.preventDefault();
+                                 <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" ><i class="zmdi zmdi-arrow-left"></i> Cerrar sesión</a>
 
-                                     <form id="logout-form" action="{{--{{ route('logout') }}--}}" method="POST" style="display: none;">
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                     </form>
 

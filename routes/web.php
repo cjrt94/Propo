@@ -11,8 +11,10 @@
 |
 */
 
+Auth::routes();
 
-Route::group([/*'middleware' => 'auth', */'prefix' => 'admin'  ], function () {
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'  ], function () {
 
     Route::get('/', function () {
         return view('home');
@@ -55,6 +57,3 @@ Route::group([/*'middleware' => 'auth', */'prefix' => 'admin'  ], function () {
 
 
 });
-
-
-Auth::routes();
