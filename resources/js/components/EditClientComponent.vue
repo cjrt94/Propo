@@ -608,7 +608,7 @@
                     }).then(function (response) {
                         if (response.data === 'ok') {
 
-                            swal("El cliente modificado correctamente", {
+                            swal("El cliente fue modificado correctamente", {
                                 buttons: false,
                                 timer: 3000,
                             }).then()

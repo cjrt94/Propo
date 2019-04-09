@@ -42,6 +42,30 @@
                     </h2>
                 </div>
 
+                <div class="action-header clearfix">
+                    <div class="ah-label hidden-xs">Escribe aquí</div>
+
+                    <form action="{{route('filterPropo')}}">
+
+                        <div class="ah-search">
+                            <input type="text" placeholder="Filtra por número de cotización..." class="ahs-input" name="filter">
+
+                            <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
+                    </div>
+
+                    </form>
+
+                    <ul class="actions">
+                        <li>
+                            <a href="" data-ma-action="action-header-open">
+                                <i class="zmdi zmdi-search"></i>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
                 <div class="table-responsive">
                     <table id="data-table-basic" class="table table-striped">
                         <thead>
@@ -72,6 +96,9 @@
 
                                     <button class="btn btn-icon command-edit waves-effect waves-circle"
                                             onclick="window.location.href='{{route('viewPropo', ['id' =>$propo->id])}}'" ><span class="zmdi zmdi-eye"></span></button>
+
+                                    <button class="btn btn-icon command-edit waves-effect waves-circle"
+                                        onclick="window.location.href='{{url('/cotizaciones/'.$propo->url)}}'" ><span class="zmdi zmdi-link"></span></button>
 
                                 </td>
 

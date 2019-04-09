@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+Route::get('/cotizaciones/{url}', 'PropoController@showPropo')->name('showPropo');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'  ], function () {
 
@@ -53,6 +54,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'  ], function () {
 
     Route::get('cotizaciones/contacts/{client}','ClientController@getContacts')->name('getContacts');
     Route::get('cotizaciones/addresses/{client}','ClientController@getAddresses')->name('getAddresses');
+
+    Route::get('cotizaciones/filtrar}', 'PropoController@filter')->name('filterPropo');
+
 
 
 

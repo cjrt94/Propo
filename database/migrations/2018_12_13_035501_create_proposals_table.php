@@ -16,10 +16,11 @@ class CreateProposalsTable extends Migration
         Schema::create('proposals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('offer_validity');
-            $table->string('way_to-pay');
+            $table->string('way_to_pay');
             $table->string('place_delivery');
             $table->string('currency',10);
             $table->double('total');
+            $table->text('url');
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

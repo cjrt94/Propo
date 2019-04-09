@@ -162,7 +162,7 @@
                                             <div class="select">
                                                 <select class="selectpicker" data-live-search="true" v-model="selectedProduct">
                                                     <option value="-1">Seleccionar Producto</option>
-                                                    <option v-for="product in products" :value="product.id">{{product.description+ '-' + product.sku}}</option>
+                                                    <option v-for="product in products" :value="product.id">{{product.sku}}</option>
 
                                                 </select>
                                             </div>
@@ -241,7 +241,7 @@
 
 
                                             <th  data-column-id="name" scope="col">Descripción</th>
-                                            <th  data-column-id="portion" scope="col">Warranty</th>
+                                            <th  data-column-id="portion" scope="col">Garantía</th>
                                             <th  data-column-id="portion" scope="col">PE</th>
                                             <th  data-column-id="portion" scope="col">Precio</th>
                                             <th  data-column-id="portion" scope="col">Cantidad</th>
@@ -260,9 +260,9 @@
                                             <td scope="row">{{product.des}}</td>
                                             <td scope="row">{{product.warranty}}</td>
                                             <td scope="row">{{product.term}}</td>
-                                            <td scope="row">{{product.price}}</td>
-                                            <td scope="row">{{product.quantity}}</td>
-                                            <td scope="row">{{product.total}}</td>
+                                            <td scope="row">{{ Math.round(product.price*100)/100 }} </td>
+                                            <td scope="row">{{product.quantity }}</td>
+                                            <td scope="row">{{Math.round(product.total*100)/100}}</td>
 
                                             <td><button class="btn btn-icon command-edit waves-effect waves-circle"
                                                         onclick="window.location.href=''" ><span class="zmdi zmdi-delete"></span></button></td>
@@ -271,7 +271,7 @@
 
                                         <tr>
                                             <td colspan="5"></td>
-                                            <td class="highlight">{{totalFinal}}</td>
+                                            <td class="highlight">{{Math.round(totalFinal*100)/100}}</td>
                                         </tr>
 
                                         </tbody>
@@ -458,13 +458,13 @@
                 this.selectedCurrencyColor= '';
 
 
-                if(this.selectedClient==='-1'){
+                if(this.selectedClient===-1){
                     this.selectedClientColor='red';
                 }
-                else if(this.selectedContact==='-1'){
+                else if(this.selectedContact===-1){
                     this.selectedContactColor='red';
                 }
-                else if(this.selectedAddress==='-1'){
+                else if(this.selectedAddress===-1){
                     this.selectedAddressColor='red';
                 }
                 else if(this.offerValidity.length===0){
@@ -476,7 +476,7 @@
                 else if(this.placeDelivery.length===0){
                     this.placeDeliveryColor='red';
                 }
-                else if(this.selectedCurrency==='-1'){
+                else if(this.selectedCurrency===-1){
                     this.selectedCurrencyColor='red';
                 }
                 else if(this.productsSelected.length===0){
@@ -506,10 +506,7 @@
                     }).then(function (response) {
                         if (response.data === 'ok') {
 
-                                notify('Cotización creada correctamente', "inverse");
-
-                                window.location.href = '/admin/cotizaciones';
-
+                              window.location.href = '/admin/cotizaciones';
 
                         }
                     })

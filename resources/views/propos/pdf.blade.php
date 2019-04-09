@@ -87,14 +87,14 @@
         <div class="col-xs-3">
           <div class="bgm-green brd-2 p-15">
             <div class="c-white m-b-5">Validez de oferta</div>
-            <h2 class="m-0 c-white f-300">{{$propo->offer_validity}} días</h2>
+            <h2 class="m-0 c-white f-300">{{$propo->offer_validity}}</h2>
           </div>
         </div>
 
         <div class="col-xs-3">
           <div class="bgm-red brd-2 p-15">
             <div class="c-white m-b-5">Total</div>
-            <h2 class="m-0 c-white f-300">{{money_format('%i', $propo->total)}}</h2>
+            <h2 class="m-0 c-white f-300">{{number_format($propo->total, 2)}}</h2>
           </div>
         </div>
         </div>
@@ -118,13 +118,13 @@
         <tr>
           <td width="50%">
             <h5 class="text-uppercase f-400">{{$product->sku}}</h5>
-            <p class="text-muted">{{$product->description}}</p>
+            <p class="text-muted" style="font-size:14px !important">{{$product->description}}</p>
           </td>
-          <td>{{$product->pivot->warranty}}</td>
-          <td>{{$product->pivot->term}}</td>
-          <td>{{$product->pivot->price}}</td>
-          <td>{{$product->pivot->quantity}}</td>
-          <td class="text-right">{{ round($product->pivot->quantity * $product->pivot->price * 1.18,2) }}</td>
+          <td  style="font-size:14px !important">{{$product->pivot->warranty}}</td>
+          <td  style="font-size:14px !important">{{$product->pivot->term}}</td>
+          <td  style="font-size:14px !important">@if($propo->currency==='Soles') S/ @else $ @endif {{number_format($product->pivot->price,2)}}</td>
+          <td  style="font-size:14px !important">{{$product->pivot->quantity}}</td>
+          <td  style="font-size:14px !important" class="text-right">@if($propo->currency==='Soles') S/ @else $ @endif {{number_format( $product->pivot->quantity * $product->pivot->price * 1.18 , 2 ) }}</td>
 
 
         </tr>
@@ -133,19 +133,19 @@
         <tr>
           <td colspan="4"></td>
           <td class="highlight"> Subtotal</td>
-          <td class="highlight text-right">{{money_format('%i', round($propo->total/1.18,2))}}</td>
+          <td class="highlight text-right">@if($propo->currency==='Soles') S/ @else $ @endif{{number_format($propo->total/1.18,2)}}</td>
         </tr>
 
         <tr>
           <td colspan="4"></td>
           <td class="highlight"> IGV</td>
-          <td class="highlight text-right">{{money_format('%i', $propo->total - round($propo->total/1.18,2) ) }}</td>
+          <td class="highlight text-right">@if($propo->currency==='Soles') S/ @else $ @endif{{number_format($propo->total - round($propo->total/1.18,2) ,2 ) }}</td>
         </tr>
 
         <tr>
           <td colspan="4"></td>
           <td class="highlight"> Total</td>
-          <td class="highlight text-right">{{money_format('%i', $propo->total)}}</td>
+          <td class="highlight text-right">@if($propo->currency==='Soles') S/ @else $ @endif{{number_format($propo->total,2)}}</td>
         </tr>
 
 
@@ -164,10 +164,10 @@
             <h4 class="c-green f-400">CONDICIONES DE VENTA</h4>
 
             <ul class="c-gray" style="list-style: decimal">
-             <li>Los precios son en SOLES y Incluye I.G.V.</li>
-             <li>Forma de pago :		CRÉDITO A 20 DÍAS</li>
-             <li>Validez de oferta :		05 DIAS </li>
-             <li>Lugar de entrega :		Donde indique dentro de lima metropolitana</li>
+             <li>Los precios son en {{$propo->currency}} e Incluye I.G.V.</li>
+             <li>Forma de pago :	{{$propo->way_to_pay}}</li>
+             <li>Validez de oferta :	{{$propo->offer_validity}}</li>
+             <li>Lugar de entrega :	{{$propo->place_delivery}}</li>
             </ul>
 
             <p class="c-gray">
@@ -208,7 +208,7 @@
           <h4 class="c-green f-400">EMITIR SU ORDEN DE COMPRA A NOMBRE DE </h4>
 
             <ul class="c-gray" style="list-style: -o-repeating-linear-gradient">
-            <li>Razón social :	ANGLIDATA EXPRESS S.R.L/li>
+            <li>Razón social :	ANGLIDATA EXPRESS S.R.L</li>
             <li>R.U.C :		20341031517</li>
             <li>Dirección :		JR. ANTENOR RIZO PATRON NRO. 134 LIMA - LIMA </li>
             </ul>
